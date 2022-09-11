@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 import CustomPagination from '../../Components/CustomPagination/CustomPagination';
 import Genres from '../../Components/Genres';
 import SingleContent from '../../Components/SingleContent/SingleContent';
+import useGenre from '../../hooks/useGenre';
+
+
 
 function Movies() {
   const [page, setpage] = useState(1)
@@ -10,9 +13,10 @@ function Movies() {
   const [numOfpages, setNumOfPages] = useState()
   const [selectedGenres, setSelectedGenres] = useState([])
   const [genres, setGenres] = useState([])
+  const genreforURL=useGenre(selectedGenres)
 
   const fetchMovies=async()=>{
-    const {data}=await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`);
+    const {data}=await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`);
     // console.log(data);
 
     setcontent(data.results);
@@ -20,8 +24,10 @@ function Movies() {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line
     fetchMovies()
-  }, [page])
+    // eslint-disable-next-line
+  }, [page, genreforURL])
   
   return (
     <div>
