@@ -5,7 +5,14 @@ import Genres from '../../Components/Genres';
 import SingleContent from '../../Components/SingleContent/SingleContent';
 import useGenre from '../../hooks/useGenre';
 
-
+// const ask = 'yes';
+// const choise = "some";
+// if(ask==='yes'){
+//    choise = "true";
+// }
+// if(ask==='no'){
+//    choise  = "false";
+// }
 
 function Movies() {
   const [page, setpage] = useState(1)
