@@ -1,8 +1,25 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { createMuiTheme, TextField, ThemeProvider } from "@material-ui/core";
 const Search = () => {
+  const [type, setType] = useState(0);
+
+  const darkTheme = createMuiTheme({
+    pelette: {
+      type: "dark",
+      primary: {
+        main: "white"
+      },
+    }
+  })
   return (
-    <div>Search</div>
+    <div>
+      <ThemeProvider theme={darkTheme}>
+        <div>
+          
+        </div>
+        <TextField style={{ flex: 1 }} className="search" id="standard-basic" label="Search" variant="filled" />
+      </ThemeProvider>
+    </div>
   )
 }
 

@@ -21,6 +21,7 @@ const Genres = ({
       selectedGenres.filter((selected) => selected.id !== genre.id)
     );
     setGenres([...genres, genre]);
+    // setPage(1);
     setPage(1);
   };
 
