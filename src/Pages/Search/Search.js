@@ -17,7 +17,7 @@ const Search = () => {
         <div>
           
         </div>
-        <TextField style={{ flex: 1 }} className="search" id="standard-basic" label="Search" variant="filled" />
+        <TextField style={{ flex: 2 }} className="search" id="standard-basic" label="Search" variant="filled" />
       </ThemeProvider>
     </div>
   )
